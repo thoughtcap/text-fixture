@@ -1,0 +1,20 @@
+# Pipeline config for test fixture
+target_repo: /Users/luka/.cursor/worktrees/automation-pipeline/stn/test-fixture
+base_branch: main
+concurrency: 1
+agent_timeout_seconds: 120
+
+commands:
+  install: npm install
+  format: "echo 'skip format'"
+  lint: "echo 'skip lint'"
+  test: npm test
+
+pr:
+  draft: true
+  labels: [test]
+  reviewers: []
+
+safety:
+  allowed_commands: [git, npm, node, echo, cursor]
+  deny_patterns: ["rm -rf"]
