@@ -1,5 +1,5 @@
 # Pipeline config for test fixture
-target_repo: /Users/luka/.cursor/worktrees/automation-pipeline/stn/test-fixture
+target_repo: /Users/luka/Projects/test-fixture
 base_branch: main
 concurrency: 1
 agent_timeout_seconds: 120
@@ -12,9 +12,9 @@ commands:
 
 pr:
   draft: true
-  labels: [test]
+  labels: []
   reviewers: []
 
 safety:
-  allowed_commands: [git, npm, node, echo, cursor]
+  allowed_commands: [git, npm, node, echo, cursor, gh]
   deny_patterns: ["rm -rf"]
